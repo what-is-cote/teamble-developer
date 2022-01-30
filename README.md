@@ -16,3 +16,7 @@
 <img align='left' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=phj8221">
 <!-- <img align='left' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=doll3164">
 <img align='left' src="http://mazassumnida.wtf/api/v2/generate_badge?boj=moon1309"> -->
+
+<a href="https://github.com/younyikim">
+<img src="https://avatars1.githubusercontent.com/u/73516688" alt="drawing" width="80"> 
+</a>
