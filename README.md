@@ -68,5 +68,6 @@
 ## <img src="https://user-images.githubusercontent.com/78714820/148998323-df8997b1-ec90-433a-bc2f-340adcd31984.png" width="25"> Plan
 * 2월엔 앞에 백준 단계별 기본문제 다 끝내기
 * 3월 이후, 일주일에 5문제 (최대한 매일 풀기~)
+* 2월 28일까지 강의 섹션 5까지 듣기
 
 
