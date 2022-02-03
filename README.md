@@ -1,4 +1,8 @@
 # 🤷‍♀️ 코테? 그게 뭔데
+
+![Frame 1](https://user-images.githubusercontent.com/73516688/152289334-1399a2f9-0f58-42d6-ab07-9686f42c0ecd.png)
+
+
 > Teamble Algorithm Study <br>
 >  2021.01.30 ~ 누구 하나 취업할 때까지
 
