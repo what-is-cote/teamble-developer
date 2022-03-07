@@ -35,7 +35,7 @@
             <a href="https://github.com/n0eyes">정세연</a>
         </td>
         <td>
-          <!--  <a href="https://solved.ac/doll3164"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=doll3164" /></a> -->
+          <!--  <a href="https://solved.ac/doll3164"><img height="140px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=doll3164" /></a> -->
         </td>
         <td align="center" width="130px" height="160px">
             <a href="https://github.com/dingding-21"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/63945197" /></a>
@@ -43,7 +43,7 @@
             <a href="https://github.com/dingding-21">박현지</a>
         </td>
         <td>
-            <a href="https://solved.ac/phj8221"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=phj8221" /></a>
+            <a href="https://solved.ac/phj8221"><img height="140px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=phj8221" /></a>
         </td>
     </tr>
     <tr>
@@ -53,7 +53,7 @@
             <a href="https://github.com/younyikim">김연이</a>
         </td>
         <td>
-            <a href="https://solved.ac/ghddl1123"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=ghddl1123" /></a>
+            <a href="https://solved.ac/ghddl1123"><img height="140px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=ghddl1123" /></a>
         </td>        
         <td align="center" width="130px" height="160px">
             <a href="https://github.com/MoonGyu1"><img height="100px" width="100px" src="https://avatars.githubusercontent.com/u/78714820" /></a>
@@ -61,7 +61,7 @@
             <a href="https://github.com/MoonGyu1">문규원</a>
         </td>
         <td>
-          <a href="https://solved.ac/moon1309"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=moon1309" /></a>
+          <a href="https://solved.ac/moon1309"><img height="140px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=moon1309" /></a>
         </td>
     </tr>
 </table>
