@@ -61,7 +61,7 @@
             <a href="https://github.com/MoonGyu1">문규원</a>
         </td>
         <td>
-          <!--  <a href="https://solved.ac/moon1309"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=moon1309" /></a> -->
+          <a href="https://solved.ac/moon1309"><img height="140px" width="275px" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=moon1309" /></a>
         </td>
     </tr>
 </table>
