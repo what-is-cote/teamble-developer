@@ -1,12 +1,12 @@
 import os , sys
 
 os.system('clear')
-sys.stdin=open("noeyes/section_4/3.뮤직비디오.txt", "rt")
+# sys.stdin=open("noeyes/section_4/3.뮤직비디오.txt", "rt")
 
 def CheckNeedDVD():
 
   dvd = []
-  count = 0 
+  count = 0
 
   for i in arr:
     if(sum(dvd) + i <= mid):

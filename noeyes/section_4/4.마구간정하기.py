@@ -1,7 +1,7 @@
 import os , sys
 
-os.system('clear')
-sys.stdin=open("noeyes/section_4/4.마구간정하기.txt", "rt")
+# os.system('clear')
+# sys.stdin=open("noeyes/section_4/4.마구간정하기.txt", "rt")
 
 def CheckDistance(d):
   count = 1

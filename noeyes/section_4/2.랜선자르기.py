@@ -1,6 +1,6 @@
 import os , sys
 
-sys.stdin=open("noeyes/section_4/2.랜선자르기.txt", "rt")
+# sys.stdin=open("noeyes/section_4/2.랜선자르기.txt", "rt")
 
 def Count():
   count = 0
