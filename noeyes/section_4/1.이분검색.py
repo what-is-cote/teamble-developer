@@ -1,7 +1,7 @@
 import os , sys
 
 os.system('clear')
-sys.stdin=open("noeyes/section_4/이분검색.txt", "rt")
+sys.stdin=open("noeyes/section_4/1.이분검색.txt", "rt")
 
 n , m = map(int,input().split())
 arr = list(map(int,input().split()))

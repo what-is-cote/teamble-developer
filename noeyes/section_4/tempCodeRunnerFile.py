@@ -1,1 +1,1 @@
-sum(arr)
+d <= huts[rt] - huts[lt]
