@@ -2,7 +2,7 @@ import sys, os
 sys.stdin = open(f'{os.path.dirname(os.path.realpath(__file__))}/input.txt', "rt")
 
 dx = [-1, 0, 1, 0]
-dy = [0, -1, 0, -1]
+dy = [0, -1, 0, 1]
 
 N = int(input())
 l = [list(map(int, input().split())) for _ in range(N)]
