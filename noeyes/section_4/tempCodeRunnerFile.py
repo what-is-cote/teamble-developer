@@ -1,0 +1,1 @@
+d <= huts[rt] - huts[lt]
