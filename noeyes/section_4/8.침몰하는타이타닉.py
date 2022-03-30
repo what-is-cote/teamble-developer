@@ -7,10 +7,11 @@ people = list(map(int,input().split()))
 
 people.sort(reverse=True)
 que = deque(people)
-count = 0
+
 # lt = 0
 # rt = n -1
 # count = 0
+
 # while lt <= rt:
 #   if people[lt] + people[rt] > m:
 #     count +=1
@@ -24,6 +25,7 @@ count = 0
 
 while que:
   
+count = 0
   if len(que) == 1:
     count+=1
     break
