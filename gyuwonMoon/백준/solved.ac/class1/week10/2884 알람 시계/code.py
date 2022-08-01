@@ -1,0 +1,15 @@
+import sys, os
+sys.stdin=open(f'{os.path.dirname(os.path.realpath(__file__))}/input.txt', "rt")
+
+h, m=map(int, input().split())
+
+if m-45<0:
+  if h==0:
+    h=23
+  else:
+    h-=1
+  m=60+(m-45)
+else:
+  m-=45
+
+print(h, m)
