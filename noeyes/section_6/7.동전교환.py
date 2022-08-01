@@ -1,8 +1,5 @@
 import os , sys
-from collections import deque
-# sys.stdin=open("noeyes/section_6/7.동전교환.txt", "rt")
-# input = sys.stdin.readline
-# s = input().rstrip()
+sys.stdin=open("noeyes/section_6/7.동전교환.txt", "rt")
 
 def gogo (i):
   global cost , count
@@ -10,6 +7,7 @@ def gogo (i):
   if i >= len(arr):
     return
   
+  print(cost)
   while cost - arr[i] >= 0:
     cost -= arr[i]
     count += 1
@@ -26,3 +24,11 @@ if __name__ == "__main__":
   gogo(0)
   print(count)
 # 80점
+
+# 50 25 20 8 1 
+# 129
+
+
+
+
+
