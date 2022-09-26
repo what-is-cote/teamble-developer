@@ -12,7 +12,7 @@ export default class Component {
     return "";
   }
   render() {
-    this.$target.innerHTML = this.template();
+    this.$target.innerHTML = this.$target.innerHTML + this.template();
   }
   setEvent() {}
   setState(newState) {

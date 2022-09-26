@@ -7,14 +7,12 @@ export default class Items extends Component {
   template() {
     const { items } = this.$state;
     return `
-      <ul class='test'>
+      <ul class='test' data-is-hi='hihi'>
         ${items.map((item) => `<li>${item}</li>`).join("")}
       </ul>
       <button class='addBtn'>추가</button>
       <button class='deleteBtn'>삭제</button>
-      <div class='box1' style='width: 100px; height: 100px; background: red;'>
-      <div class='box2' style='width: 50px; height: 50px; background: blue;'> <div/>
-      <div/>
+      
     `;
   }
 
