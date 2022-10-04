@@ -1,0 +1,33 @@
+.to-do-container {
+  width: 100%;
+}
+
+.to-do-list {
+  width: 100%;
+}
+
+.to-do {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+}
+
+.to-do-text {
+  max-width: 80%;
+
+  font-size: 1.5rem;
+
+  padding-right: 1rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

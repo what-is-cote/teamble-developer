@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do-List</title>
+
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="layout">
+        <header>
+          <form id="form">
+            <input type="text" autofocus />
+            <input type="button" value="추가" />
+            <input type="button" value="검색" />
+          </form>
+        </header>
+        <main>
+          <h1>To Do List</h1>
+          <nav>
+            <button>To Do List</button>
+            <button>Memo</button>
+          </nav>
+          <section class="to-do-container">
+            <ul class="to-do-list"></ul>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>

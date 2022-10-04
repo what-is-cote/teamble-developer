@@ -1,0 +1,27 @@
+{
+  "name": "mvc",
+  "version": "1.0.0",
+  "description": "vanilla - mvc",
+  "main": "index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/what-is-cote/teamble-developer.git"
+  },
+  "keywords": [
+    "vanilla.js"
+  ],
+  "author": "noeyes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/what-is-cote/teamble-developer/issues"
+  },
+  "homepage": "https://github.com/what-is-cote/teamble-developer#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
