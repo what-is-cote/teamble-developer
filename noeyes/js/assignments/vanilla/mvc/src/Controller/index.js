@@ -1,6 +1,8 @@
 import { hide, qs } from "../utils/helper.js";
 
 class Controller {
+  _listener = [];
+
   constructor(model, { formView, toDoView }) {
     this.model = model;
     this.formView = formView;
@@ -19,27 +21,44 @@ class Controller {
       });
 
     this.toDoView
-      .delegate("click", ".update", this.toggleMode.bind(this))
-      .delegate("click", ".delete", (e) => {
-        console.log("삭제");
+      .on("@update", ({ detail: { id } }) => {
+        this.toggleMode(id);
+      })
+      .on("@delete", ({ detail: { id } }) => {
+        this.deleteToDo(id);
+      })
+      .on("@submit", ({ detail }) => {
+        this.updateToDo(detail);
       });
   }
-  addToDo({ value }) {
-    this.model.addToDo({ id: this.model.toDoList.length + 1, value });
-    this.toDoView.render(this.model.toDoList);
+
+  raiseListeners(listeners) {
+    listeners.forEach((l) => l());
+    this.render();
   }
 
-  updateToDo(e) {}
+  addToDo({ value }) {
+    this.model.addToDo({ id: this.model.toDoList.length + 1, value });
+    this.render();
+  }
 
-  toggleMode() {
-    this.model.isEditing = !this.model.isEditing;
+  updateToDo(detail) {
+    this.model.updateToDo({ id: parseInt(detail.id), value: detail.value });
+    this.render();
+  }
+
+  toggleMode(id) {
+    this.model.toggleMode(parseInt(id));
+    this.render();
+  }
+
+  deleteToDo(id) {
+    this.model.deleteToDo(parseInt(id));
     this.render();
   }
 
   render() {
     this.toDoView.render(this.model.toDoList);
-
-    // this.toDoView.setEvent();
   }
 }
 

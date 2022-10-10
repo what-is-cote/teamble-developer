@@ -6,18 +6,16 @@ class FormView extends View {
     super(qs("#form"));
 
     this.$input = qs("[type=text]", this.$element);
-    this.$resetButton = qs("[type=button]", this.$element);
-
+    this.$searchButton = qs("[type=button]", this.$element);
+    console.log(this.$searchButton);
     this.setEvent();
   }
 
   setEvent() {
     on("keypress", "[type=text]", (e) => this.handleEnter(e));
-    on("click", "[type=button]", () => console.log("object"));
   }
 
   handleEnter({ key, target: { value } }) {
-    console.log(value);
     if (key === "Enter") this.emit("@submit", { value });
   }
 }

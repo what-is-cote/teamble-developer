@@ -162,6 +162,10 @@ h1 {
   margin-bottom: 3rem;
 }
 
+.flex {
+  display: flex;
+}
+
 .flex-button {
   display: flex;
 }

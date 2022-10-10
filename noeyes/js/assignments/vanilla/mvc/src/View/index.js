@@ -5,8 +5,8 @@ class View {
     this.$element = element;
   }
 
-  rerender() {
-    this.render();
+  renderView(data) {
+    this.render(data);
     this.setEvent();
   }
 

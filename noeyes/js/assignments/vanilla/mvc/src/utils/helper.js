@@ -9,7 +9,8 @@ export function qsAll(selector, target = document) {
 export function on(event, selectorOrEl, callback) {
   if (typeof selectorOrEl === "string") {
     const $el = qs(selectorOrEl);
-    $el.addEventListener(event, callback);
+    console.log($el);
+    $el?.addEventListener(event, callback);
   } else {
     selectorOrEl.addEventListener(event, callback);
   }

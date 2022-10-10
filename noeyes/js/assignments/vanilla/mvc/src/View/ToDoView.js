@@ -6,13 +6,46 @@ class ToDoView extends View {
     super(qs(".to-do-container"));
 
     this.template = new Template();
-    this.$updateBtn = qs("update", this.$element);
-    this.$deleteBtn = qs("delete", this.$element);
+    this.setEvent();
   }
 
   render(toDoList) {
     qs(".to-do-list", this.$element).innerHTML =
       this.template.getToDoList(toDoList);
+  }
+
+  setEvent() {
+    this.delegate("click", ".update", this.handleClickUpdate.bind(this))
+      .delegate("click", ".delete", this.handleClickDelete.bind(this))
+      .delegate("submit", ".to-do-form", this.handleSubmit.bind(this));
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    this.emit("@submit", {
+      id: e.target.closest(".to-do").dataset.id,
+      value: e.target.children[0].value,
+    });
+  }
+
+  handleClickDelete({ target }) {
+    this.emit("@delete", { id: target.closest(".to-do").dataset.id });
+  }
+
+  handleClickUpdate({ target }) {
+    this.emit("@update", { id: target.closest(".to-do").dataset.id });
+    qs(".to-do-input").focus();
+  }
+
+  handleEnter({
+    key,
+    target: {
+      value,
+      dataset: { id },
+    },
+  }) {
+    if (key === "Enter") this.emit("@submit", { value, id });
   }
 }
 
@@ -21,9 +54,21 @@ export default ToDoView;
 class Template {
   constructor() {}
 
-  getToDoText(value) {
+  getToDoTextArea(toDo) {
     return `
-      <span class="to-do-text">${value}</span>
+      <span class="to-do-text">${toDo.value}</span>
+      ${this.getFlexButton()}
+    `;
+  }
+
+  getToDoForm(toDo) {
+    return `
+      <form class='to-do-form flex'>
+        <input type='text' class="to-do-input" value=${toDo.value} data-id=${
+      toDo.id
+    }  />
+        ${this.getConfirmButton()}
+      </form>
     `;
   }
 
@@ -36,17 +81,18 @@ class Template {
     `;
   }
 
+  getConfirmButton() {
+    return `
+        <button class="shrink confirm" type='submit'>완료</button>
+    `;
+  }
+
   getToDoList(toDoList) {
     return toDoList
       .map(
         (toDo) => `
-        <li class="to-do " data-key='${toDo.id}'>
-          ${this.getToDoText(toDo.value)}
-          ${this.getFlexButton()}
-        </li>
-        <li class="to-do to-do-edit hide" data-key='${toDo.id}'>
-          <input type='text' class="to-do" data-key='${toDo.id}'/>
-          ${this.getFlexButton()}
+        <li class="to-do " data-id='${toDo.id}'>
+          ${toDo.editing ? this.getToDoForm(toDo) : this.getToDoTextArea(toDo)}
         </li>
     `
       )
