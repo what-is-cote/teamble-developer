@@ -1,1 +1,1 @@
-object"
+enterTheDungeons(dungeons, k).map((e) => e.count)
