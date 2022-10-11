@@ -9,19 +9,19 @@ export function qsAll(selector, target = document) {
 export function on(event, selectorOrEl, callback) {
   if (typeof selectorOrEl === "string") {
     const $el = qs(selectorOrEl);
-    console.log($el);
-    $el?.addEventListener(event, callback);
+    $el.addEventListener(event, callback);
   } else {
     selectorOrEl.addEventListener(event, callback);
   }
 }
 
-export function delegate(event, target, selector, callback) {
-  const children = [...qsAll(selector, target)];
-  const isTarget = (target) =>
-    children.includes(target) || target.closest(selector);
+export function delegate(event, parent, selector, callback) {
+  const isTarget = (target) => {
+    const children = [...qsAll(selector, parent)];
+    return children.includes(target) || target.closest(selector);
+  };
 
-  target.addEventListener(event, (e) => {
+  parent.addEventListener(event, (e) => {
     isTarget(e.target) && callback(e);
   });
 }
