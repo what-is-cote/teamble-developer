@@ -106,6 +106,35 @@ function qsAll(tag, target = document) {
 
 console.log(qsAll("button"));
 
+class MyPromise1 {
+  constructor(executor) {
+    this.state = "pending";
+    this.callbackList = [];
+
+    try {
+      executor(this.resolve.bind(this), this.reject.bind(this));
+    } catch (err) {}
+  }
+
+  resolve(data) {
+    this.flush(data);
+  }
+  reject(data) {}
+  then(callback) {
+    this.callbackList.push(callback);
+
+    return this;
+  }
+
+  async flush(data) {
+    let value = data;
+
+    for (let callback of this.callbackList) {
+      value = await callback(value);
+    }
+  }
+}
+
 const MyPromise2 = class {
   constructor(executor) {
     this.state = "pending";
