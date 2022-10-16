@@ -108,29 +108,60 @@ console.log(qsAll("button"));
 
 class MyPromise1 {
   constructor(executor) {
+    this.result;
     this.state = "pending";
-    this.callbackList = [];
+    this.nextCallback = [];
 
     try {
       executor(this.resolve.bind(this), this.reject.bind(this));
-    } catch (err) {}
+    } catch (err) {
+      this.reject(err);
+    }
   }
 
   resolve(data) {
+    this.update(data, "fulfilled");
+  }
+  reject(data) {
+    this.update(data, "rejected");
+  }
+
+  update(data, state) {
+    this.result = data;
+    this.state = state;
+
     this.flush(data);
   }
-  reject(data) {}
-  then(callback) {
-    this.callbackList.push(callback);
 
-    return this;
+  then(resolvedCallback, rejectedCallback = () => {}) {
+    return new MyPromise1((resolve, reject) => {
+      this.nextCallback.push((value) => {
+        if (this.state === "fulfilled") return resolve(resolvedCallback(value));
+        if (this.state === "rejected") return reject(rejectedCallback(value));
+      });
+    });
   }
 
-  async flush(data) {
-    let value = data;
-
-    for (let callback of this.callbackList) {
-      value = await callback(value);
+  flush(data) {
+    if (data instanceof MyPromise1 || data instanceof Promise) {
+      if (data.state === "pending") {
+        data.then(
+          (value) => {
+            this.state = "fulfilled";
+            this.result = value;
+            this.nextCallback.forEach((callback) => callback(value));
+          },
+          (value) => {
+            this.state = "rejected";
+            this.result = value;
+            this.nextCallback.forEach((callback) => callback(value));
+          }
+        );
+      } else {
+        this.nextCallback.forEach((callback) => callback(data.result));
+      }
+    } else {
+      this.nextCallback.forEach((callback) => callback(data));
     }
   }
 }
@@ -166,7 +197,6 @@ const MyPromise2 = class {
   }
 
   decidePromiseByMethod(method, callback) {
-    console.log("decide");
     const state = method === "then" ? "resolved" : "rejected";
     if (this.state === state)
       return new MyPromise2((resolve) => resolve(callback(this.value)));

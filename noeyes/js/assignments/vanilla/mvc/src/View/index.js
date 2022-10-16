@@ -5,11 +5,6 @@ class View {
     this.$element = element;
   }
 
-  renderView(data) {
-    this.render(data);
-    this.setEvent();
-  }
-
   on(event, callback) {
     on(event, this.$element, callback);
 
