@@ -1,6 +1,9 @@
+import { render } from "../utils/hook.js";
+
 export default class Component {
   $target;
   $state;
+
   constructor($target) {
     this.$target = $target;
     this.setup();
@@ -12,6 +15,7 @@ export default class Component {
   template() {
     return "";
   }
+
   render() {
     this.$target.innerHTML = this.template();
     this.mounted();
@@ -31,5 +35,7 @@ export default class Component {
       if (!isTarget(event.target)) return false;
       callback(event);
     });
+
+    return this;
   }
 }

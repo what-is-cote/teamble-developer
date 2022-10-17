@@ -1,14 +1,14 @@
 import Component from "../core/Component.js";
+import { useState } from "../utils/hook.js";
 
 export default class Items extends Component {
   setup() {
-    this.$state = { items: ["item1", "item2"] };
+    [this.items, this.setItems] = useState(["item1", "item2"]);
   }
   template() {
-    const { items } = this.$state;
     return `
       <ul class='test' data-is-hi='hihi'>
-        ${items.map((item) => `<li>${item}</li>`).join("")}
+        ${this.items.map((item) => `<li>${item}</li>`).join("")}
       </ul>
       <button class='addBtn'>추가</button>
       <button class='deleteBtn'>삭제</button>
@@ -18,8 +18,9 @@ export default class Items extends Component {
 
   setEvent() {
     this.addEvent("click", ".addBtn", () => {
-      const { items } = this.$state;
-      this.setState({ items: [...items, `item${items.length + 1}`] });
+      // const { items } = this.$state;
+      // this.setState({ items: [...items, `item${items.length + 1}`] });
+      this.setItems([...this.items, `item${this.items.length + 1}`]);
     });
     this.addEvent("click", ".deleteBtn", ({ target }) => {
       const items = [...this.$state.items];
