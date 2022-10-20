@@ -6,7 +6,7 @@ function solution(elements) {
             if(arr.length !== i){
                 arr = [...arr, ...elements.slice(0,i-arr.length)];
             }
-            set.add([...arr].reduce((a,b)=> (+a) + (+b), 0));
+            set.add(arr.reduce((a,b)=> a + b, 0));
         }
     }
     return set.size;
