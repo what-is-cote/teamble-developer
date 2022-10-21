@@ -1,30 +1,21 @@
 import Component from "./core/Component.js";
-import Items from "./components/Items.js";
-import Counter from "./components/Counter.js";
-import { render } from "./utils/hook.js";
+import { registerRouter } from "./utils/route.js";
 
 export default class App extends Component {
   constructor() {
-    const $app = document.querySelector("#app");
+    const $app = document.querySelector(".App");
     super($app);
-  }
 
-  template() {
-    return `
-      <div class='box1' style='width: 100px; height: 100px; background: red;'>
-        <span>before component</span>
-      </div>
-      <div class='counter'></div>
-    `;
-  }
+    const routerCallback = registerRouter(this.render.bind(this));
 
-  mounted() {
-    new Items(document.querySelector(".box1"));
-    new Counter(document.querySelector(".counter"));
-  }
+    window.addEventListener("ROUTE", ({ detail: { url } }) => {
+      routerCallback(url);
+    });
 
-  setEvent() {}
+    window.addEventListener("popstate", () => {
+      routerCallback(location.pathname);
+    });
+  }
 }
 
-const exe = () => new App();
-render(exe);
+new App();

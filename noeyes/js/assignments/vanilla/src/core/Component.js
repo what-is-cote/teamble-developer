@@ -1,13 +1,14 @@
-import { render } from "../utils/hook.js";
+import { createEl } from "../utils/helper.js";
 
 export default class Component {
   $target;
   $state;
 
-  constructor($target) {
+  constructor($target, $props = {}, option = {}) {
     this.$target = $target;
+    this.$props = $props;
     this.setup();
-    this.render();
+    this.render(option);
     this.setEvent();
   }
   mounted() {}
@@ -17,7 +18,15 @@ export default class Component {
   }
 
   render() {
-    this.$target.innerHTML = this.template();
+    if (this.$target instanceof DocumentFragment) {
+      const $el = createEl("div");
+
+      this.$target.append($el);
+      $el.insertAdjacentHTML("afterend", this.template());
+      $el.remove();
+    } else {
+      this.$target.innerHTML = this.template();
+    }
     this.mounted();
   }
   setEvent() {}
@@ -37,5 +46,13 @@ export default class Component {
     });
 
     return this;
+  }
+
+  appendTo(parent) {
+    parent.append(this.$target);
+  }
+
+  get node() {
+    return this.$target;
   }
 }
