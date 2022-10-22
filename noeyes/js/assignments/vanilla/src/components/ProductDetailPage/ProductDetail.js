@@ -1,6 +1,7 @@
 import Component from "../../core/Component.js";
 import { client } from "../../utils/client.js";
 import { getCart, setCart } from "../../utils/storage.js";
+import { route } from "../../utils/route.js";
 
 class ProductDetail extends Component {
   setup() {
@@ -107,6 +108,7 @@ class ProductDetail extends Component {
       }));
 
       setCart([...(getCart() || []), ...cart]);
+      route("/cart");
     });
   }
 
