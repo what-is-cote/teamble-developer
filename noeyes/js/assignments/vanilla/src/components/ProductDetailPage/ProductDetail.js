@@ -88,7 +88,7 @@ class ProductDetail extends Component {
         option.id === id
           ? {
               ...option,
-              ...(e.target.value <= option.stock
+              ...(0 <= e.target.value && e.target.value <= option.stock
                 ? { quantity: parseInt(e.target.value) }
                 : {}),
             }
