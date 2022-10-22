@@ -38,12 +38,14 @@ class ProductDetail extends Component {
             <div class="ProductDetail__selectedOptions">
               <h3>선택된 상품</h3>
               <ul>
-                ${selected.map(
-                  (option) =>
-                    `<li data-id=${option.id}>
+                ${selected
+                  .map(
+                    (option) =>
+                      `<li data-id=${option.id}>
                       ${option.name} ${option.price}원 <div><input type="number" value=${option.quantity}>개</div>
                     </li>`
-                )}
+                  )
+                  .join("")}
               </ul>
               <div class="ProductDetail__totalPrice">${total.toLocaleString()}원</div>
               <button class="OrderButton">주문하기</button>
