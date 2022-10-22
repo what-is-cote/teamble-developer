@@ -1,6 +1,5 @@
 import ProductDetail from "../components/ProductDetailPage/ProductDetail.js";
 import Component from "../core/Component.js";
-import { client } from "../utils/client.js";
 import { qs } from "../utils/helper.js";
 
 class ProductDetailPage extends Component {

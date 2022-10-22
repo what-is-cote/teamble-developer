@@ -15,7 +15,7 @@ export async function client(PATH, options) {
           productOptions: [
             {
               id: 1,
-              stock: 0,
+              stock: 5,
               name: "커피잔 100개번들",
               price: 2000,
             },

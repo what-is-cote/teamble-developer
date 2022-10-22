@@ -35,12 +35,13 @@ export default class Component {
     this.render();
   }
 
-  addEvent(eventType, selector, callback) {
-    const children = [...this.$target.querySelectorAll(selector)];
+  addEvent(eventType, selector, callback, target = this.$target) {
+    const children = [...target.querySelectorAll(selector)];
 
     const isTarget = (target) =>
       children.includes(target) || target.closest(selector);
-    this.$target.addEventListener(eventType, (event) => {
+
+    target.addEventListener(eventType, (event) => {
       if (!isTarget(event.target)) return false;
       callback(event);
     });
