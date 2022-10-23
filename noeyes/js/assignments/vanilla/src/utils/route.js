@@ -1,4 +1,5 @@
-import ProductDetail from "../pages/ProductDetailPage.js";
+import CartPage from "../pages/CartPage.js";
+import ProductDetailPage from "../pages/ProductDetailPage.js";
 import ProductListPage from "../pages/ProductListPage.js";
 import { createEl } from "./helper.js";
 
@@ -14,11 +15,11 @@ export function registerRouter(render) {
         createEl("div", { class: "ProductListPage" })
       ).appendTo($app);
     } else if (pathname.slice(1).split("/")[0] === "products") {
-      new ProductDetail(
+      new ProductDetailPage(
         createEl("div", { class: "ProductDetailPage" })
       ).appendTo($app);
     } else if (pathname === "/cart") {
-      console.log("cart");
+      new CartPage(createEl("div", { class: "CartPage" })).appendTo($app);
     }
   }
 

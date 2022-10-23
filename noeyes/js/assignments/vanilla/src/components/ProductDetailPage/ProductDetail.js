@@ -78,40 +78,38 @@ class ProductDetail extends Component {
         selected: [...newState],
         total: this.getTotal(newState),
       });
-    });
+    })
+      .addEvent("change", ".ProductDetail__selectedOptions", (e) => {
+        const { selected, detail } = this.$state;
+        const id = parseInt(e.target.closest("li").dataset.id);
 
-    this.addEvent("change", ".ProductDetail__selectedOptions", (e) => {
-      const { selected, detail } = this.$state;
-      const id = parseInt(e.target.closest("li").dataset.id);
+        const newState = selected.map((option) =>
+          option.id === id
+            ? {
+                ...option,
+                ...(0 <= e.target.value && e.target.value <= option.stock
+                  ? { quantity: parseInt(e.target.value) }
+                  : {}),
+              }
+            : option
+        );
 
-      const newState = selected.map((option) =>
-        option.id === id
-          ? {
-              ...option,
-              ...(0 <= e.target.value && e.target.value <= option.stock
-                ? { quantity: parseInt(e.target.value) }
-                : {}),
-            }
-          : option
-      );
+        this.setState({
+          selected: [...newState],
+          total: this.getTotal(newState),
+        });
+      })
+      .addEvent("click", ".OrderButton", () => {
+        const { selected, detail } = this.$state;
+        const cart = selected.map((option) => ({
+          productId: detail.id,
+          optionId: option.id,
+          quantity: option.quantity,
+        }));
 
-      this.setState({
-        selected: [...newState],
-        total: this.getTotal(newState),
+        setCart([...(getCart() || []), ...cart]);
+        route("/cart");
       });
-    });
-
-    this.addEvent("click", ".OrderButton", (e) => {
-      const { selected, detail } = this.$state;
-      const cart = selected.map((option) => ({
-        productId: detail.id,
-        optionId: option.id,
-        quantity: option.quantity,
-      }));
-
-      setCart([...(getCart() || []), ...cart]);
-      route("/cart");
-    });
   }
 
   getTotal(selectedOptions) {

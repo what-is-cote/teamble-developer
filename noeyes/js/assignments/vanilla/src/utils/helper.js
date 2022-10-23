@@ -10,8 +10,8 @@
 /**
  *
  * @param {string} selector
- * @param {HTMLElement | Document} [target]
- * @returns
+ * @param {HTMLElement | Document} [target = document]
+ * @returns {Element | null}
  */
 export function qs(selector, target = document) {
   return target.querySelector(selector);
@@ -21,7 +21,7 @@ export function qs(selector, target = document) {
  *
  * @param {string} tag
  * @param {Options} [options]
- * @returns
+ * @returns {Element}
  */
 export function createEl(tag, options = {}) {
   const $el = document.createElement(tag);
