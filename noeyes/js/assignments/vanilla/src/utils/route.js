@@ -38,5 +38,8 @@ export function route(url) {
     cancelable: true,
     detail: { url },
   });
-  window.dispatchEvent(E);
+
+  setTimeout(() => {
+    window.dispatchEvent(E);
+  }, 0);
 }

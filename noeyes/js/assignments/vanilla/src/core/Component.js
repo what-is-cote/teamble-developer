@@ -18,17 +18,10 @@ export default class Component {
   }
 
   render() {
-    if (this.$target instanceof DocumentFragment) {
-      const $el = createEl("div");
-
-      this.$target.append($el);
-      $el.insertAdjacentHTML("afterend", this.template());
-      $el.remove();
-    } else {
-      this.$target.innerHTML = this.template();
-    }
+    this.$target.innerHTML = this.template();
     this.mounted();
   }
+
   setEvent() {}
   setState(newState) {
     this.$state = { ...this.$state, ...newState };
@@ -53,7 +46,7 @@ export default class Component {
     parent.append(this.$target);
   }
 
-  get node() {
+  get root() {
     return this.$target;
   }
 }
